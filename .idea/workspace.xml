@@ -807,7 +807,7 @@
       <workItem from="1485954997852" duration="13000" />
       <workItem from="1485955042669" duration="7391000" />
       <workItem from="1485964082358" duration="1161000" />
-      <workItem from="1486121048056" duration="6383000" />
+      <workItem from="1486121048056" duration="6415000" />
     </task>
     <task id="LOCAL-00001" summary="Work on add and capture buttons">
       <created>1481374938779</created>
@@ -851,11 +851,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486127490818</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Naming photo to be sorted on raspberry pi">
+      <created>1486127539110</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1486127539110</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122287000" />
+    <option name="totallyTimeSpent" value="122319000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -931,7 +938,8 @@
     <MESSAGE value="sending photo to raspberry pi" />
     <MESSAGE value="testing Github" />
     <MESSAGE value="Adding a Daemon Thread, and tidying code a bit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding a Daemon Thread, and tidying code a bit" />
+    <MESSAGE value="Naming photo to be sorted on raspberry pi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Naming photo to be sorted on raspberry pi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
