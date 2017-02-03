@@ -17,6 +17,7 @@ package com.company;
  * 16/12/2016 - project demo
  * 20/01/2017 - testing github
  * 27/01/2017 - Tidying up code
+ * 03/02/2017 - Threading code
  */
 import org.opencv.core.Core;
 

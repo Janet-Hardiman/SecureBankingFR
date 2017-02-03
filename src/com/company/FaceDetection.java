@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+import jdk.nashorn.internal.scripts.JO;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.optional.ssh.Scp;
 import org.opencv.core.Core;
@@ -186,57 +187,30 @@ public class FaceDetection extends javax.swing.JFrame {
         t.setDaemon(true);
         myThread.runnable = true;
         t.start();                          //start thread
+        buttonSave.setEnabled(false);       //disable buttons until required
+        buttonRetake.setEnabled(false);
 
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCaptureActionPerformed(java.awt.event.ActionEvent e) {
         myThread.runnable = false;          //stop thread
+        buttonSave.setEnabled(true);
+        buttonRetake.setEnabled(true);
+        buttonCapture.setEnabled(false);
+        String filename = "facialPhoto.png";
+        Highgui.imwrite(filename, frame);
 
     }//end event_buttonCaptureActionPerformed
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent e) {
         myThread.runnable = false;          // stop thread
         webSource.release();                //stop capturing from cam
-        //jButton2.setEnabled(false);       //activate start button
-        //jButton1.setEnabled(true);        //deactivate stop button
-        BufferedImage img = null;
-        try {
-            img = ImageIO.read(new File("webCamImg.png"));
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
-        File theDir = new File("images");
-        if (!theDir.exists()) {
-            System.out.println("creating directory: " + theDir);
-            boolean result = false;
+        buttonSave.setEnabled(false);       //activate start button
+        String name = (String)JOptionPane.showInputDialog(facePanel, "Please enter your name: ", JOptionPane.INFORMATION_MESSAGE );
+        String filenameSave = name + "001" + ".png";
+        Highgui.imwrite(filenameSave, frame);
+        savePhoto photo = new savePhoto(filenameSave);
 
-            try {
-                theDir.mkdir();
-                result = true;
-            } catch (SecurityException se) {
-                //handle it
-            }
-            if (result) {
-                System.out.println("DIR created");
-            }
-        }
-        String path = "";
-        path = theDir.getAbsolutePath();
-        //    JOptionPane.showMessageDialog(facePanel, "saved to:  " + path);
-        System.out.println(path);
-
-
-        File f2 = new File(path + "\\myName.jpg");
-        String myName = "myName.jpg";
-
-        //File f2 = new File(path);  //output file path
-        try {
-            ImageIO.write(img, "jpg", f2);
-        } catch (IOException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-        sendToPi(myName);
     }//end event_buttonSaveActionPerformed
 
     private void buttonRetakeActionPerformed(java.awt.event.ActionEvent e) {
@@ -246,30 +220,13 @@ public class FaceDetection extends javax.swing.JFrame {
         t.setDaemon(true);
         myThread.runnable = true;
         t.start();
+        buttonCapture.setEnabled(true);
     }//end event_buttonRetakeActionPerformed
+
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent e) {
         webSource.release();                //stop capturing from cam
         dispose();
-    }
-
-    private void sendToPi(String photo) {
-        // This make scp copy of
-        // one local file to remote dir
-        org.apache.tools.ant.taskdefs.optional.ssh.Scp scp = new Scp();
-        int portSSH = 22;
-        String srvrSSH = "192.168.43.184";
-        String userSSH = "pi";
-        String pswdSSH = "raspberry";
-        String localFile = "images/" + photo;
-        String remoteDir = "/home/pi/Desktop";
-
-        scp.setPort(portSSH);
-        scp.setLocalFile(localFile);
-        scp.setTodir(userSSH + ":" + pswdSSH + "@" + srvrSSH + ":" + remoteDir);
-        scp.setProject(new Project());
-        scp.setTrust(true);
-        scp.execute();
     }
 
 
