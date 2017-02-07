@@ -3,13 +3,8 @@ package com.company;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
 import javax.imageio.ImageIO;
 
-import jdk.nashorn.internal.scripts.JO;
-import org.apache.tools.ant.Project;
-import org.apache.tools.ant.taskdefs.optional.ssh.Scp;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
@@ -33,6 +28,7 @@ public class FaceDetection extends javax.swing.JFrame {
     private JButton buttonSave;
     private JButton buttonRetake;
     private JButton buttonCancel;
+    int suffix = 001;
 
     private DaemonThread myThread = null;
     int count = 0;
@@ -203,13 +199,22 @@ public class FaceDetection extends javax.swing.JFrame {
     }//end event_buttonCaptureActionPerformed
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent e) {
-        myThread.runnable = false;          // stop thread
+        myThread.runnable = false;          //stop thread
         webSource.release();                //stop capturing from cam
-        buttonSave.setEnabled(false);       //activate start button
-        String name = (String)JOptionPane.showInputDialog(facePanel, "Please enter your name: ", JOptionPane.INFORMATION_MESSAGE );
-        String filenameSave = name + "001" + ".png";
-        Highgui.imwrite(filenameSave, frame);
-        savePhoto photo = new savePhoto(filenameSave);
+
+        String name = (String)JOptionPane.showInputDialog(facePanel, "Please enter your name: ", "Save File", JOptionPane.INFORMATION_MESSAGE );
+
+        String filenameSave = name + suffix + ".png";
+        System.out.println(filenameSave);
+        if((name != null) && (name.length() > 0)){
+            suffix++;
+            Highgui.imwrite(filenameSave, frame);
+            savePhoto photo = new savePhoto(filenameSave);
+            buttonSave.setEnabled(false);       //activate start button
+        }
+        else
+            JOptionPane.showMessageDialog(facePanel, "Error no file created, name must be entered", "Inane Error", JOptionPane.ERROR_MESSAGE);
+
 
     }//end event_buttonSaveActionPerformed
 

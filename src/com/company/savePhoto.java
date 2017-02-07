@@ -4,7 +4,6 @@ import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.optional.ssh.Scp;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
