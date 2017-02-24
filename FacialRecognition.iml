@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -114,7 +118,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/apache-ant-1.9.7-bin/jsch-0.1.54.jar!/" />
+          <root url="jar://$MODULE_DIR$/../JarFiles/apache-ant-1.9.7-bin/apache-ant-1.9.7/lib/ant.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -123,7 +127,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/apache-ant-1.9.7-bin/apache-ant-1.9.7/lib/ant-jsch.jar!/" />
+          <root url="jar://$MODULE_DIR$/../JarFiles/apache-ant-1.9.7-bin/apache-ant-1.9.7/lib/ant-launcher.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -132,7 +136,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/apache-ant-1.9.7-bin/apache-ant-1.9.7/lib/ant-launcher.jar!/" />
+          <root url="jar://$MODULE_DIR$/../JarFiles/apache-ant-1.9.7-bin/apache-ant-1.9.7/lib/ant-jsch.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -141,7 +145,25 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/apache-ant-1.9.7-bin/apache-ant-1.9.7/lib/ant.jar!/" />
+          <root url="jar://$MODULE_DIR$/../JarFiles/javacv-1.2-bin/javacv-bin/javacv.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../JarFiles/javacv-1.2-bin/javacv-bin/javacpp.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../JarFiles/apache-ant-1.9.7-bin/jsch-0.1.54.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
