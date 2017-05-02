@@ -1,14 +1,22 @@
 package com.company;
-
+/*
+.------..------.
+|J.--. ||H.--. |
+| :(): || :/\: |
+| ()() || (__) |
+| '--'J|| '--'H|
+`------'`------'
+Name: Janet Hardiman
+Date: 07/10/2016
+Project: EigenvalueDecomp - requires Colt.jar"
+*/
 // EigenvalueDecomp.java
 // Sajan Joseph, sajanjoseph@gmail.com
 // http://code.google.com/p/javafaces/
 // Modified by Andrew Davison, April 2011, ad@fivedots.coe.psu.ac.th
 
 
-
 import cern.colt.matrix.linalg.EigenvalueDecomposition;
-
 
 public class EigenvalueDecomp extends EigenvalueDecomposition
 {

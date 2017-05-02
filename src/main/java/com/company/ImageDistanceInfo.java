@@ -1,6 +1,15 @@
 package com.company;
-
-
+/*
+.------..------.
+|J.--. ||H.--. |
+| :(): || :/\: |
+| ()() || (__) |
+| '--'J|| '--'H|
+`------'`------'
+Name: Janet Hardiman
+Date: 07/10/2016
+Project: BuildEigenFaces - requires Colt.jar"
+*/
 // ImageDistanceInfo.java
 // Sajan Joseph, sajanjoseph@gmail.com
 // http://code.google.com/p/javafaces/

@@ -1,4 +1,15 @@
 package com.company;
+/*
+.------..------.
+|J.--. ||H.--. |
+| :(): || :/\: |
+| ()() || (__) |
+| '--'J|| '--'H|
+`------'`------'
+Name: Janet Hardiman
+Date: 07/10/2016
+Project: BuildEigenFaces - requires Colt.jar"
+*/
 
 // BuildEigenFaces.java
 // Sajan Joseph, sajanjoseph@gmail.com
@@ -46,8 +57,6 @@ public class BuildEigenFaces
     }	  // end of build()
 
 
-
-
     private static FaceBundle makeBundle(ArrayList<String> fnms)
     // create eigenvectors/eigenvalue bundle for the specified training image filenames;
     // also save each eigenface (eigenvector) as an image file
@@ -81,8 +90,6 @@ public class BuildEigenFaces
     }  // end of makeBundle()
 
 
-
-
     private static Matrix2D convertToNormMat(BufferedImage[] ims)
   /* convert array of  images into a matrix; each row is an image
      and the number of columns is the number of pixels in the image.
@@ -104,8 +111,6 @@ public class BuildEigenFaces
     }		// end of convertToNormMat()
 
 
-
-
     private static Matrix2D getNormEgFaces(Matrix2D imsMat, Matrix2D egVecs)
   /* calculate normalized Eigenfaces for the training images by multiplying the
      eigenvectors to the training images matrix */
@@ -122,7 +127,6 @@ public class BuildEigenFaces
         }
         return new Matrix2D(egFacesData);
     }  // end of getNormEgFaces()
-
 
 
     // ---------------------- sort the EigenVectors --------------------------
@@ -156,7 +160,6 @@ public class BuildEigenFaces
     }  // end of sortEigenInfo()
 
 
-
     private static Double[] getEgValsAsDoubles(double[] egVals)
     // convert double Eigenvalues to Double objects, suitable for Hashtable keys
     {
@@ -165,7 +168,6 @@ public class BuildEigenFaces
             egDvals[i] = new Double(egVals[i]);
         return egDvals;
     }  // end of getEgValsAsDoubles()
-
 
 
     private static double[] getColumn(double[][] vecs, int col)
@@ -179,7 +181,6 @@ public class BuildEigenFaces
     }  // end of getColumn()
 
 
-
     private static ArrayList<Double> sortKeysDescending(
             Hashtable<Double,double[]> table)
     // sort the keylist part of the hashtable into descending order
@@ -188,7 +189,6 @@ public class BuildEigenFaces
         Collections.sort(keyList, Collections.reverseOrder()); // largest first
         return keyList;
     }  // end of sortKeysDescending()
-
 
 
     private static void updateEgVecs(double[][] egVecs,
@@ -203,7 +203,6 @@ public class BuildEigenFaces
                 egVecs[row][col] = egVec[row];
         }
     }  // end of updateEgVecs()
-
 
 
     // ---------- reconstruction of images from eigenfaces ------------------
@@ -230,7 +229,6 @@ public class BuildEigenFaces
     }  // end of reconstructIms()
 
 
-
     private static double[][] getNormImages(double[][] weights,
                                             Matrix2D egFacesSubMat, Matrix2D egValsSubMat)
   /* calculate weights x eigenfaces, which generates mean-normalized traimning images;
@@ -249,7 +247,6 @@ public class BuildEigenFaces
     }  // end of getNormImages()
 
 
-
     private static double[][] addAvgImage(double[][] normImgs, double[] avgImage)
     // add the average image to each normalized image (each row) and store in a new array;
     // the result are the original training images; one per row
@@ -261,7 +258,6 @@ public class BuildEigenFaces
         }
         return origImages;
     }  // end of addAvgImage()
-
 
 
     // -------------- test rig ----------------------------
@@ -283,7 +279,6 @@ public class BuildEigenFaces
         System.out.println("Total time taken: " +
                 (System.currentTimeMillis() - startTime) + " ms");
     }  // end of main()
-
 
 }  // end of BuildEigenFaces class
 

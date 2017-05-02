@@ -1,5 +1,15 @@
 package com.company;
-
+/*
+.------..------.
+|J.--. ||H.--. |
+| :(): || :/\: |
+| ()() || (__) |
+| '--'J|| '--'H|
+`------'`------'
+Name: Janet Hardiman
+Date: 07/10/2016
+Project: Matrix2D - requires Colt.jar"
+*/
 // Matrix2D.java
 // Sajan Joseph, sajanjoseph@gmail.com
 // http://code.google.com/p/javafaces/
@@ -40,10 +50,8 @@ public class Matrix2D extends DenseDoubleMatrix2D
     }  // end of Matrix2D()
 
 
-
     public Matrix2D getSubMatrix(int rows)
     {  return new Matrix2D(viewPart(0, 0, rows, super.columns()).copy()); }
-
 
 
     public static void fitToUnitLength(double[] data)
@@ -76,7 +84,6 @@ public class Matrix2D extends DenseDoubleMatrix2D
     }  // end of getAverageOfEachColumn()
 
 
-
     public void replaceRowsWithArray(double[] data)
     {
         if (this.columns != data.length)
@@ -88,7 +95,6 @@ public class Matrix2D extends DenseDoubleMatrix2D
                 set(row, col, data[col]);
         }
     }  // end of replaceRowsWithArray()
-
 
 
     public void normalise()
@@ -105,7 +111,6 @@ public class Matrix2D extends DenseDoubleMatrix2D
         }
         assign(temp);
     }  // end of normalise()
-
 
 
     private static double max(double[] arr)

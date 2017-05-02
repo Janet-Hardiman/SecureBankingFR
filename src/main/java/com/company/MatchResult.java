@@ -1,5 +1,15 @@
 package com.company;
-
+/*
+.------..------.
+|J.--. ||H.--. |
+| :(): || :/\: |
+| ()() || (__) |
+| '--'J|| '--'H|
+`------'`------'
+Name: Janet Hardiman
+Date: 07/10/2016
+Project: MatchResult - requires Colt.jar"
+*/
 // MatchResult.java
 // Sajan Joseph, sajanjoseph@gmail.com
 // http://code.google.com/p/javafaces/
@@ -38,9 +48,9 @@ public class MatchResult
         String name = (slashPos == -1) ? matchFnm.substring(0, extPos) :
                 matchFnm.substring(slashPos+1, extPos);
 
-        name = name.replaceAll("[-_0-9]*$", "");   // remove trailing numbers, etc
+       // name = name.replaceAll("\\.[-_0-9]*$", "");   // remove trailing numbers, etc
+        name = name.replaceAll("[^a-zA-Z]", "");
         return name;
     }  // end of getName()
-
 
 }  // end of MatchResult class

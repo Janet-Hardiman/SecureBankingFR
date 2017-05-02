@@ -1,12 +1,21 @@
 package com.company;
-
+/*
+.------..------.
+|J.--. ||H.--. |
+| :(): || :/\: |
+| ()() || (__) |
+| '--'J|| '--'H|
+`------'`------'
+Name: Janet Hardiman
+Date: 07/10/2016
+Project: FaceDetection"
+*/
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.imageio.ImageIO;
 
 import org.opencv.core.Core;
@@ -22,9 +31,6 @@ import org.opencv.objdetect.CascadeClassifier;
 
 import javax.swing.*;
 
-/**
- * Created by Dinmahr on 30/01/2017.
- */
 public class FaceDetection extends javax.swing.JFrame {
 
     private JPanel facePanel;
@@ -245,7 +251,7 @@ public class FaceDetection extends javax.swing.JFrame {
             //suffix++;
             Highgui.imwrite(imageSave, frame);
             Highgui.imwrite(imageCropSave, Crop);
-            savePhoto photo = new savePhoto(imageCropSave);
+            savePhoto photo = new savePhoto(imageCropSave, "trainingImages");
             photo.start();
             buttonSave.setEnabled(false);       //activate start button
         }
@@ -269,6 +275,7 @@ public class FaceDetection extends javax.swing.JFrame {
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent e) {
         webSource.release();                //stop capturing from cam
+        new Login().setVisible(true);
         dispose();
 
     }//end event_buttonCancelActionPerformed
@@ -281,6 +288,9 @@ public class FaceDetection extends javax.swing.JFrame {
         BuildEigenFaces.build(numEFs);
         System.out.println("Total time taken: " +
                 (System.currentTimeMillis() - startTime) + " ms");
+
+        new Login().setVisible(true);
+        dispose();
 
     }//end event_trainImageActionPerformed
 }

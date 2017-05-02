@@ -1,10 +1,19 @@
 package com.company;
-
+/*
+.------..------.
+|J.--. ||H.--. |
+| :(): || :/\: |
+| ()() || (__) |
+| '--'J|| '--'H|
+`------'`------'
+Name: Janet Hardiman
+Date: 07/10/2016
+Project: ImageUtils - requires Colt.jar"
+*/
 // ImageUtils.java
 // Sajan Joseph, sajanjoseph@gmail.com
 // http://code.google.com/p/javafaces/
 // Modified by Andrew Davison, April 2011, ad@fivedots.coe.psu.ac.th
-
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -44,7 +53,6 @@ public class ImageUtils
     }  // end of createImFromArr()
 
 
-
     public static double[] createArrFromIm(BufferedImage im)
     {
         int imWidth = im.getWidth();
@@ -57,7 +65,6 @@ public class ImageUtils
         System.out.println("Length no2:" + imArr.length);
         return imArr;
     }  // end of createArrFromIm()
-
 
 
     // public static BufferedImage convertToGray(BufferedImage im)
@@ -83,7 +90,6 @@ public class ImageUtils
     }  // end of toScaledGray()
 
 
-
     public static BufferedImage clipToRectangle(BufferedImage im,
                                                 int x, int y, int width, int height)
     { BufferedImage clipIm = null;
@@ -96,9 +102,6 @@ public class ImageUtils
         }
         return clipIm;
     }  // end of clipToRectangle()
-
-
-
 
 
     public static void checkImSizes(ArrayList<String> fNms, BufferedImage[] ims)
@@ -116,7 +119,6 @@ public class ImageUtils
             }
         }
     }	 // end of checkImSizes()
-
 
 }  // end of ImageUtils class
 

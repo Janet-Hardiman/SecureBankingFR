@@ -1,5 +1,15 @@
 package com.company;
-
+/*
+.------..------.
+|J.--. ||H.--. |
+| :(): || :/\: |
+| ()() || (__) |
+| '--'J|| '--'H|
+`------'`------'
+Name: Janet Hardiman
+Date: 07/10/2016
+Project: FaceBundle - requires Colt.jar"
+*/
 // FaceBundle.java
 // Sajan Joseph, sajanjoseph@gmail.com
 // http://code.google.com/p/javafaces/
@@ -73,8 +83,6 @@ public class FaceBundle implements Serializable
         Matrix2D weights  = imsMat.multiply(facesSubMatTr);
         return weights .toArray();
     }  // end of calcWeights()
-
-
 
 }  // end of FaceBundle class
 

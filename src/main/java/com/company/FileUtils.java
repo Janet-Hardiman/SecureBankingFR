@@ -1,5 +1,15 @@
 package com.company;
-
+/*
+.------..------.
+|J.--. ||H.--. |
+| :(): || :/\: |
+| ()() || (__) |
+| '--'J|| '--'H|
+`------'`------'
+Name: Janet Hardiman
+Date: 07/10/2016
+Project: FileUtils - requires Colt.jar"
+*/
 // FileUtils.java
 // Sajan Joseph, sajanjoseph@gmail.com
 // http://code.google.com/p/javafaces/
@@ -28,7 +38,6 @@ public class FileUtils
     private static final String RECON_PREFIX = "recon_";
 
 
-
     public static ArrayList<String> getTrainingFnms()
     // return all the names of the training image files + their paths
     {
@@ -51,7 +60,6 @@ public class FileUtils
     }  // end of getTrainingFnms()
 
 
-
     private static ArrayList<String> getPathNms(String[] fnms)
     {
         ArrayList<String> imFnms = new ArrayList<String>();
@@ -61,7 +69,6 @@ public class FileUtils
         Collections.sort(imFnms);
         return imFnms;
     }  // end of getPathNms()
-
 
 
     // -------------------- image files input -------------------------------
@@ -92,7 +99,6 @@ public class FileUtils
     }  // end of loadTrainingIms()
 
 
-
     public static BufferedImage loadImage(String imFnm)
     // return an image
     {
@@ -107,8 +113,6 @@ public class FileUtils
         }
         return image;
     }  // end of loadImage()
-
-
 
 
     public static void saveImage(BufferedImage im, String fnm)
@@ -152,7 +156,6 @@ public class FileUtils
     }	 // end of readCache()
 
 
-
     public static void writeCache(FaceBundle bundle)
     // save the FaceBundle object in a file called EF_CACHE
     {
@@ -188,7 +191,6 @@ public class FileUtils
     }  // end of saveEFIms()
 
 
-
     private static void makeDirectory(String dir)
     // create a new directory or delete the contents of an existing one
     {
@@ -205,7 +207,6 @@ public class FileUtils
     }  // end of makeDirectory()
 
 
-
     private static void deleteFile(File f)
     {
         if (f.isFile()) {
@@ -215,7 +216,6 @@ public class FileUtils
    */
         }
     }	 // end of deleteFile()
-
 
 
     private static void saveArrAsImage(String fnm, double[] imData, int width)
@@ -247,7 +247,6 @@ public class FileUtils
             saveArrAsImage(fnm, ims[i], imWidth);
         }
     }  // end of saveReconIms()
-
 
 
 }  // end of FileUtils class

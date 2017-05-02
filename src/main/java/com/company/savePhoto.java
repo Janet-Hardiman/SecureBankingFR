@@ -1,11 +1,17 @@
 package com.company;
-
+/*
+.------..------.
+|J.--. ||H.--. |
+| :(): || :/\: |
+| ()() || (__) |
+| '--'J|| '--'H|
+`------'`------'
+Name: Janet Hardiman
+Date: 07/10/2016
+Project: savePhoto"
+*/
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.optional.ssh.Scp;
-import org.opencv.core.Mat;
-import org.opencv.highgui.Highgui;
-import org.opencv.objdetect.CascadeClassifier;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -14,14 +20,11 @@ import java.io.File;
 import java.io.IOException;
 
 
-/**
- * Created by Dinmahr on 03/02/2017.
- */
 public class savePhoto extends Thread{
 
     private String imageCropSave;
     // for saving a detected face image
-    private static final String FACE_DIR = "trainingImages";
+    private static String FACE_DIR; // = "trainingImages";
     private static String FACE_FNM;
     private static final int FACE_WIDTH = 125;
     private static final int FACE_HEIGHT = 150;
@@ -29,8 +32,9 @@ public class savePhoto extends Thread{
     private int fileCount = 0;
 
 
-    public savePhoto(String imageCropSave) {
+    public savePhoto(String imageCropSave, String dir) {
         this.FACE_FNM = imageCropSave;
+        this.FACE_DIR = dir;
         System.out.println(FACE_FNM);
     }
 
@@ -108,16 +112,11 @@ public class savePhoto extends Thread{
 
         System.out.println("Saving clip...");
         BufferedImage grayIm = resizeImage(clipIm);
-        //   saveImage(grayIm, FACE_DIR + "/" + FACE_FNM + fileCount + ".png");
-        //fileCount++;
         BufferedImage faceIm = clipToFace(grayIm);
         saveImage(faceIm, FACE_DIR + "/" + FACE_FNM);   // + fileCount + ".png"
-        //fileCount++;
 
         System.out.println("  Save time: " + (System.currentTimeMillis() - startTime) + " ms");
     }  // end of saveClip()
-
-
 
 
     private BufferedImage resizeImage(BufferedImage im)
