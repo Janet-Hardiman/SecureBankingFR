@@ -100,8 +100,10 @@ public class Webcam extends javax.swing.JFrame {
         FaceRecognition fr = new FaceRecognition(numEFs);
         MatchResult result = fr.match(args[0]);
 
-        if (result == null)
+        if (result == null) {
             System.out.println("No match found");
+            return "No match found";
+        }
         else {
             System.out.println();
             System.out.print("Matches image in " + result.getMatchFileName());
@@ -111,7 +113,6 @@ public class Webcam extends javax.swing.JFrame {
         System.out.println("Total time taken: " + (System.currentTimeMillis() - startTime) + " ms\n");
 
         String name = result.getName();
-        System.out.println("This is the name: " + name);
         return name;
     }//end of checkPhoto
 
@@ -221,31 +222,55 @@ public class Webcam extends javax.swing.JFrame {
 
         String name = checkPhoto(new String[]{"tempImages/photo.png"});
 
-        Object[] options = {"Enter, please",
-                "Cancel"};
-        int input = JOptionPane.showOptionDialog(facePanel2,
-                "Hello " + name,
-                "Face Recognised Confirmation",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.INFORMATION_MESSAGE,
-                null,     //do not use a custom Icon
-                options,  //the titles of buttons
-                options[0]); //default button title
+        if( name == "No match found"){
+            Object[] options = {"Try Again",
+                    "Cancel"};
+            int input = JOptionPane.showOptionDialog(facePanel2,
+                    "No match found",
+                    "Face Recognised Confirmation",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE,
+                    null,     //do not use a custom Icon
+                    options,  //the titles of buttons
+                    options[0]); //default button title
 
-        if(input == JOptionPane.YES_OPTION)
-        {
-            webSource.release();                //stop capturing from cam
-            java.awt.Desktop.getDesktop().browse(URI.create("http://localhost:8080/"));
-            dispose();
+            if (input == JOptionPane.YES_OPTION) {
+                webSource = new VideoCapture(0);    //video capture from default cam
+                webCamThread = new DaemonThread();      //create object of threat class
+                Thread t = new Thread(webCamThread);
+                t.setDaemon(true);
+                webCamThread.runnable = true;
+                t.start();
+            } else {
+                webSource.release();                //stop capturing from cam
+                new Login().setVisible(true);
+                dispose();
+            }
         }
-
         else {
-            webSource = new VideoCapture(0);    //video capture from default cam
-            webCamThread = new DaemonThread();      //create object of threat class
-            Thread t = new Thread(webCamThread);
-            t.setDaemon(true);
-            webCamThread.runnable = true;
-            t.start();
+            Object[] options = {"Enter, please",
+                    "Cancel"};
+            int input = JOptionPane.showOptionDialog(facePanel2,
+                    "Hello " + name,
+                    "Face Recognised Confirmation",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE,
+                    null,     //do not use a custom Icon
+                    options,  //the titles of buttons
+                    options[0]); //default button title
+
+            if (input == JOptionPane.YES_OPTION) {
+                webSource.release();                //stop capturing from cam
+                java.awt.Desktop.getDesktop().browse(URI.create("http://localhost:8080/"));
+                dispose();
+            } else {
+                webSource = new VideoCapture(0);    //video capture from default cam
+                webCamThread = new DaemonThread();      //create object of threat class
+                Thread t = new Thread(webCamThread);
+                t.setDaemon(true);
+                webCamThread.runnable = true;
+                t.start();
+            }
         }
 
 
